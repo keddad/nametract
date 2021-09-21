@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nametract"
-version = "0.1.0"
+version = "1.0.0"
 description = "Simple and stupid name extraction"
 authors = ["keddad <keddad@yandex.ru>"]
 license = "MIT"
