@@ -1,10 +1,10 @@
 # nametract
 
-Simple python package to extract everything that looks like a name from the text. Probably extremely unreliable.
-Currently in development.
+Simple python package to extract everything that looks like a name from the text. Extremely unreliable. Might work for
+you if you don't care about possible errors. Currently in development.
 
 ```python
-from nametract import extractor
+from nametract import extract
 
-extractor("My name is Peter, and I love Nancy Brown")  # "Peter", "I", "Nancy Brown"
+extract("My name is Peter, and I love Nancy Brown")  # "Peter", "I", "Nancy Brown"
 ```
