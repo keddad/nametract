@@ -6,5 +6,5 @@ Currently in development.
 ```python
 from nametract import extractor
 
-extractor("My name is Peter, and I love Nancy Brown")  # Peter, I, Nancy, Brown
+extractor("My name is Peter, and I love Nancy Brown")  # "Peter", "I", "Nancy Brown"
 ```
