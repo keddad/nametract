@@ -43,7 +43,8 @@ def extract(inp: str, minimal_name_size=1, ignore_sentence_start=True) -> List[s
             current_name.append("-")
             continue
 
-        if maybe_name(token, minimal_name_size) and not ignore_next:
+        if maybe_name(token, minimal_name_size) and \
+                (not ignore_next or (i != len(tokens) - 1 and maybe_name(tokens[i + 1], minimal_name_size))):
             current_name.append(token.contents)
         elif not maybe_name(token, minimal_name_size) and len(current_name) > 0:
             answ.append(build_name(current_name))
