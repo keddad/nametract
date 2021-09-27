@@ -40,9 +40,9 @@ def tokenize(inp: str) -> List[Token]:
             token_start = i
             token_type = char_type(inp[i])
 
-        if (inp[i] in string.whitespace and token_type is not None) or (token_type != char_type(inp[i])):
+        if (inp[i] in string.whitespace and token_type is not None) or (
+                token_type != char_type(inp[i])) or (token_type == TokenEnum.Punctuation and i != 0):
             tokens.append(Token(inp[token_start:i], token_type))
-
 
             token_start = i
             token_type = char_type(inp[i])

@@ -3,7 +3,9 @@ import pytest
 
 testdata = [
     ("Привет, Мир!", [Token("Привет", token_type=TokenEnum.Literal), Token(",", token_type=TokenEnum.Punctuation),
-                      Token("Мир", token_type=TokenEnum.Literal), Token("!", token_type=TokenEnum.Punctuation)])
+                      Token("Мир", token_type=TokenEnum.Literal), Token("!", token_type=TokenEnum.Punctuation)]),
+    ("/TASS/.", [Token("/", token_type=TokenEnum.Punctuation), Token("TASS", token_type=TokenEnum.Literal),
+                 Token("/", token_type=TokenEnum.Punctuation), Token(".", token_type=TokenEnum.Punctuation)])
 ]
 
 
