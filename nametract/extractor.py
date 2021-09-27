@@ -46,14 +46,16 @@ def extract(inp: str, minimal_name_size=1, ignore_sentence_start=True) -> List[s
         if maybe_name(token, minimal_name_size) and \
                 (not ignore_next or (i != len(tokens) - 1 and maybe_name(tokens[i + 1], minimal_name_size))):
             current_name.append(token.contents)
-        elif not maybe_name(token, minimal_name_size) and len(current_name) > 0:
+        elif (not maybe_name(token,
+                             minimal_name_size)) \
+                and len(current_name) > 0:
             answ.append(build_name(current_name))
             current_name = []
 
-        if ignore_next:
+        if ignore_next and token.token_type != TokenEnum.Punctuation:
             ignore_next = False
 
-        if ignore_sentence_start and token.token_type == TokenEnum.Punctuation and token.token_type == ".":
+        if ignore_sentence_start and (token.token_type == TokenEnum.Punctuation) and token.contents == ".":
             ignore_next = True
 
     return answ
