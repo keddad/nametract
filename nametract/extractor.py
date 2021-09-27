@@ -40,6 +40,9 @@ def extract(inp: str, minimal_name_size=1, ignore_sentence_start=True) -> List[s
         if token.token_type == TokenEnum.Punctuation and token.contents in "-—" and (i != len(tokens) - 1 and i != 0) \
                 and maybe_name(tokens[i - 1], minimal_name_size=minimal_name_size) \
                 and maybe_name(tokens[i + 1], minimal_name_size=minimal_name_size):
+            if len(current_name) == 0:
+                current_name.append(tokens[i - 1].contents)
+
             current_name.append("-")
             continue
 
